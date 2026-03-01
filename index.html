@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PKHD RaceHub</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- VIDEO.JS PLAYER -->
+<link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet"/>
+<script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+
+</head>
+
+<body>
+
+<header>
+<h1>🏁 PKHD RaceHub</h1>
+<p>Live Motorsport Streams</p>
+</header>
+
+<div class="container">
+
+<!-- STREAM + CHAT -->
+<div class="stream-area">
+
+<!-- VIDEO PLAYER -->
+<div class="player">
+
+<video
+id="pkhd-player"
+class="video-js vjs-default-skin vjs-big-play-centered"
+controls
+autoplay
+preload="auto"
+data-setup="{}">
+</video>
+
+</div>
+
+<!-- TWITCH CHAT -->
+<div class="chat">
+<iframe
+src="https://www.twitch.tv/embed/pkhd24/chat?darkpopout&parent=pkhdhub.com"
+width="100%"
+height="100%">
+</iframe>
+</div>
+
+</div>
+
+<!-- SERVER BUTTONS -->
+<div class="servers">
+
+<button onclick="loadStream('http://live.tillyiptv.com:80/play/yYLusolfu-Hr8MSyJAlCyBVJ2ebbqei571equTY6Nus/m3u8')">
+Server 1
+</button>
+
+<button onclick="loadStream('https://moiptvhls-i.akamaihd.net/hls/live/652316/secure/master.m3u8')">
+Server 2
+</button>
+
+<button onclick="loadStream('https://example.com/live.ts')">
+Backup Server
+</button>
+
+</div>
+
+<!-- SCHEDULE -->
+<div class="schedule">
+
+<h2>📅 Race Schedule</h2>
+
+<table>
+<tr>
+<th>Time</th>
+<th>Event</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>12:00 PM ET</td>
+<td>INDYCAR Grand Prix</td>
+<td class="online">LIVE</td>
+</tr>
+
+<tr>
+<td>3:30 PM ET</td>
+<td>NASCAR Cup Series</td>
+<td class="offline">Offline</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<footer>
+PKHD RaceHub © 2026
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
