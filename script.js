@@ -20,4 +20,5 @@ player.play();
 }
 
 // Auto load default stream on page open
-loadStream("https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8");
+
+loadStream("https://dtmf21.b-cdn.net/docx/master.m3u8");
