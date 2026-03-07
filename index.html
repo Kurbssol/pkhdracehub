@@ -21,7 +21,7 @@
 <h1>🏁 PKHD RaceHub</h1>
 <p>Live Motorsport Streams</p>
 </header>
-    
+
 <!-- SCHEDULE -->
 <div class="schedule">
 
@@ -89,16 +89,21 @@ Server 2 (INDY)
 
 <button onclick="loadStream('https://dtmf21.b-cdn.net/thefiles/hls/0/stream.m3u8')">
 Backup Server (INDY)
-</button>    
+</button>
+
+<button onclick="loadIframe('https://wikisport.club/play/cw0.php')">
+CW Live
+</button>
 
 </div>
 
 <!-- STREAM + CHAT -->
 <div class="stream-area">
 
-<!-- VIDEO PLAYER -->
+<!-- VIDEO / IFRAME PLAYER -->
 <div class="player">
 
+<!-- VIDEOJS PLAYER -->
 <video
 id="pkhd-player"
 class="video-js vjs-default-skin vjs-big-play-centered"
@@ -108,6 +113,18 @@ preload="auto"
 crossorigin="anonymous"
 data-setup='{"fluid": true}'>
 </video>
+
+<!-- IFRAME PLAYER -->
+<iframe
+id="iframe-player"
+src=""
+width="100%"
+height="600"
+frameborder="no"
+scrolling="no"
+allowfullscreen
+style="display:none;">
+</iframe>
 
 </div>
 
@@ -129,20 +146,22 @@ PKHD RaceHub © 2026
 </footer>
 
 <script>
-// VIDEO.JS PLAYER SCRIPT
+
+// INIT VIDEOJS
 const player = videojs('pkhd-player');
 
+// LOAD M3U8 / TS STREAMS
 function loadStream(url){
 
-    // HLS (.m3u8)
+    document.getElementById("iframe-player").style.display = "none";
+    document.getElementById("pkhd-player").style.display = "block";
+
     if(url.endsWith('.m3u8')){
         player.src({
             src: url,
             type: 'application/x-mpegURL'
         });
     }
-
-    // TS or other formats fallback
     else{
         player.src({
             src: url,
@@ -153,29 +172,25 @@ function loadStream(url){
     player.play();
 }
 
-// Auto-load first server on page load
+// LOAD IFRAME STREAM
+function loadIframe(url){
+
+    player.pause();
+
+    document.getElementById("pkhd-player").style.display = "none";
+
+    const iframe = document.getElementById("iframe-player");
+    iframe.style.display = "block";
+    iframe.src = url;
+}
+
+// AUTO LOAD FIRST STREAM
 loadStream('https://dtmf21.b-cdn.net/docx/master.m3u8');
+
 </script>
+
+<!-- CONSOLE BAN -->
+<script src="https://cdn.jsdelivr.net/gh/fz6m/console-ban@3.2/dist/console-ban.min.js"></script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
