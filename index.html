@@ -195,21 +195,28 @@ loadStream('https://dtmf21.b-cdn.net/docx/master.m3u8');
 
 
 // LIVE WEBSITE VIEWER COUNT
+
+const namespace = "pkhd-racehub";
+const key = "liveviewers";
+
 async function updateViewerCount(){
     try{
-        const response = await fetch("https://api.countapi.xyz/hit/pkhd-racehub/visits");
+
+        // initialize counter if not exists
+        await fetch(`https://api.countapi.xyz/create?namespace=${namespace}&key=${key}&value=0`);
+
+        const response = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
         const data = await response.json();
 
         document.getElementById("viewerCount").innerText = data.value + " Online";
-    }
-    catch(e){
-        document.getElementById("viewerCount").innerText = "Unavailable";
+
+    } catch (e){
+        document.getElementById("viewerCount").innerText = "0 Online";
     }
 }
 
 updateViewerCount();
 setInterval(updateViewerCount,15000);
-
 </script>
 
 <!-- CONSOLE BAN -->
@@ -217,3 +224,4 @@ setInterval(updateViewerCount,15000);
 
 </body>
 </html>
+
