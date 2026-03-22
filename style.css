@@ -115,3 +115,27 @@ flex-direction:column;
 .chat iframe{
 height:50vh;
 }
+  
+}
+/* LIVE VIEWER COUNTER */
+.viewer-counter{
+margin-top:20px;
+background:#111;
+padding:18px;
+border-radius:10px;
+text-align:center;
+border:1px solid #222;
+}
+
+.viewer-counter h3{
+margin:0;
+font-size:18px;
+color:#ccc;
+}
+
+#viewerCount{
+margin-top:8px;
+font-size:34px;
+font-weight:bold;
+color:#00ff9d;
+text-shadow:0 0 10px rgba(0,255,157,0.6);
