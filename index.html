@@ -177,23 +177,6 @@ function loadIframe(url){
 // AUTO LOAD FIRST STREAM
 loadStream('https://dtmf21.b-cdn.net/docx/master.m3u8');
 
-
-// LIVE WEBSITE VIEWER COUNT
-async function updateViewerCount(){
-    try{
-        const response = await fetch("https://api.countapi.xyz/hit/pkhd-racehub/visits");
-        const data = await response.json();
-
-        document.getElementById("viewerCount").innerText = data.value + " Online";
-    }
-    catch(e){
-        document.getElementById("viewerCount").innerText = "Unavailable";
-    }
-}
-
-updateViewerCount();
-setInterval(updateViewerCount,15000);
-
 </script>
 
 <!-- CONSOLE BAN -->
